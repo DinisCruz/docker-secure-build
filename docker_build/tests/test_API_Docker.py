@@ -9,7 +9,6 @@ from docker_build.src.API_Docker import API_Docker
 class test_API_Docker(TestCase):
 
     def setUp(self):
-        self.api    = API_Docker()
         self.result = None
 
     def tearDown(self):
@@ -28,7 +27,7 @@ class test_API_Docker(TestCase):
         assert result.get('console') == ['Python 3.7.3']
 
     def test_exec(self):
-        assert self.api.exec().get('error')[1] ==  'Usage:\tdocker [OPTIONS] COMMAND'
+        assert 'Usage:\tdocker [OPTIONS] COMMAND' in self.api.docker_exec().get('error')
 
     def test_run(self):
         assert 'Hello from Docker!' in self.api.run('hello-world').get('console')
