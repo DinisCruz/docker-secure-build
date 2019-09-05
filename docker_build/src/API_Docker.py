@@ -22,7 +22,9 @@ class API_Docker:
         return     { 'ok': True , 'console': result.get('stdout').strip().split('\n')}
 
     def run(self, image_name, cmd=None):
-        params = ['run',image_name]
-        if type(cmd) == str : params.append(cmd)
-        if type(cmd) == list: params.extend(cmd)
+        params = ['run', '--rm', image_name]
+        if type(cmd) == str :
+            params.append(cmd)
+        if type(cmd) == list:
+            params.extend(cmd)
         return self.docker_exec(params)
