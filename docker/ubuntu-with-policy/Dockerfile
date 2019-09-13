@@ -1,8 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install -y libpam-cracklib
-# password guidance: see https://www.ostechnix.com/force-users-use-strong-passwords-debian-ubuntu/ for guidance on
-
 
 # 3.1.2.1 - Require all passwords/passphrases to be at least 16 characters in length                  - https://ubuntu-policy.atlassian.net/browse/POLICY-5
 # 3.1.2.2 - Require complex passwords, consisting of both numeric, alphabetic and special characters  - https://ubuntu-policy.atlassian.net/browse/POLICY-5
